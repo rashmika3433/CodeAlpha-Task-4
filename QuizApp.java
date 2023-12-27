@@ -2,15 +2,17 @@ import java.util.Scanner;
 
 public class QuizApp {
     public static void main(String[] args) {
+        // Create a new instance of Scanner class to read user input
         Scanner scanner = new Scanner(System.in);
 
+            //Quiz Questions
         String[] questions = {
                 
                 "What is not included in oop concepts?",
                 "Which OOP concept allows a class to inherit properties and behaviors from another class?",
                 "What is the benefit of using polymorphism in OOP?"
         };
-
+        //Quiz Answers
         String[][] selections = {
                 
                 {"A. Abstraction", "B. Encapsulation", "C. Decomposition", "D. Polymorphism"},
@@ -21,7 +23,7 @@ public class QuizApp {
         int[] correctAnswers = {2, 0, 2};
 
         int score = 0;
-
+            //print questions and its choices
         for (int i = 0; i < questions.length; i++) {
             System.out.println(questions[i]);
             String[] choices = selections[i];
@@ -30,15 +32,17 @@ public class QuizApp {
             }
 
             System.out.print("Enter your choice (A, B, C, or D): ");
+            //convert user input to uppercase letter
             String userAnswer = scanner.nextLine().toUpperCase();
 
+            //Check whether the answers are correct or not
             int userChoice;
             switch (userAnswer) {
                 case "A":
                     userChoice = 0;
                     if (0 == correctAnswers[i]) {
                         System.out.println("Correct Answer!");
-                        score++;
+                        score++;//Add marks if the answer is correct
                     } 
                     else {
                         System.out.println("Incorrect Answer!");
@@ -87,7 +91,7 @@ public class QuizApp {
             System.out.println();
         }
 
-        
+        //Print the output
         System.out.println("Quiz completed!");
         System.out.println("Your score: " + score + "/" + questions.length);
 
